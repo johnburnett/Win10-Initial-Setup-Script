@@ -111,6 +111,12 @@ $tweaks = @(
 	# "DisableCtrlAltDelLogin",     # "EnableCtrlAltDelLogin",
 	# "DisableIEEnhancedSecurity",  # "EnableIEEnhancedSecurity",
 
+	### Customizations ###
+	"EnableFastMenus",              # "DisableFastMenus",
+	"EnableShortKeyboardDelay",     # "DisableShortKeyboardDelay",
+	"SetupEnvironment",
+	"RemapKeyboard",
+
 	### Auxiliary Functions ###
 	"WaitForKey",
 	"Restart"
@@ -1677,6 +1683,52 @@ Function EnableIEEnhancedSecurity {
 	Write-Host "Enabling Internet Explorer Enhanced Security Configuration (IE ESC)..."
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Type DWord -Value 1
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Type DWord -Value 1
+}
+
+##########
+# Customizations
+##########
+
+# Enable fast menu fly-outs
+function EnableFastMenus
+{
+	Write-Host "Enabling fast menu fly-outs..."
+	New-ItemProperty "HKCU:\Control Panel\Desktop" -Name "MenuShowDelay" -Type String -Value 0 -Force
+}
+
+# Disable fast menu fly-outs
+function DisableFastMenus
+{
+	Write-Host "Disabling fast menu fly-outs..."
+	New-ItemProperty "HKCU:\Control Panel\Desktop" -Name "MenuShowDelay" -Type String -Value 400 -Force
+}
+
+# Enable short keyboard delay
+function EnableShortKeyboardDelay
+{
+	Write-Host "Enabling short keyboard delay..."
+	New-ItemProperty "HKCU:\Control Panel\Keyboard" -Name "KeyboardDelay" -Type DWord -Value 0 -Force
+}
+
+# Disable short keyboard delay
+function DisableShortKeyboardDelay
+{
+	Write-Host "Disabling short keyboard delay..."
+	New-ItemProperty "HKCU:\Control Panel\Keyboard" -Name "KeyboardDelay" -Type DWord -Value 1 -Force
+}
+
+function SetupEnvironment
+{
+    Write-Host "SetupEnvironment..."
+    [Environment]::SetEnvironmentVariable("DIRCMD", "/A /OGN", "User")
+    [Environment]::SetEnvironmentVariable("PYTHONDONTWRITEBYTECODE", "1", "User")
+}
+
+function RemapKeyboard
+{
+    Write-Host "RemapKeyboard..."
+    $mapCapsLockToLeftCtrl = [byte[]](00,00,00,00,00,00,00,00,0x02,00,00,00,0x1D,00,0x3A,00,00,00,00,00)
+    New-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout" -Name "Scancode Map" -PropertyType "Binary" -Value $mapCapsLockToLeftCtrl -Force
 }
 
 
