@@ -35,7 +35,7 @@ $tweaks = @(
 	"SetCurrentNetworkPrivate",     # "SetCurrentNetworkPublic",
 	# "SetUnknownNetworksPrivate",  # "SetUnknownNetworksPublic",
 	# "DisableFirewall",            # "EnableFirewall",
-	# "DisableDefender",            # "EnableDefender",
+	"DisableDefender",            # "EnableDefender",
 	# "DisableUpdateMSRT",          # "EnableUpdateMSRT",
 	# "DisableUpdateDriver",        # "EnableUpdateDriver",
 	"DisableUpdateRestart",         # "EnableUpdateRestart",
@@ -53,7 +53,7 @@ $tweaks = @(
 
 	### UI Tweaks ###
 	"DisableActionCenter",          # "EnableActionCenter",
-	"DisableLockScreen",            # "EnableLockScreen",
+	# "DisableLockScreen",            # "EnableLockScreen",
 	# "DisableLockScreenRS1",       # "EnableLockScreenRS1",
 	"HideNetworkFromLockScreen",    # "ShowNetworkOnLockScreen",
 	"HideShutdownFromLockScreen",   # "ShowShutdownOnLockScreen",
@@ -63,27 +63,27 @@ $tweaks = @(
 	# "EnableFileDeleteConfirm",    # "DisableFileDeleteConfirm",
 	"HideTaskbarSearchBox",         # "ShowTaskbarSearchBox",
 	"HideTaskView",                 # "ShowTaskView",
-	"ShowSmallTaskbarIcons",        # "ShowLargeTaskbarIcons",
-	"ShowTaskbarTitles",            # "HideTaskbarTitles",
+	# "ShowSmallTaskbarIcons",        # "ShowLargeTaskbarIcons",
+	# "ShowTaskbarTitles",            # "HideTaskbarTitles",
 	"HideTaskbarPeopleIcon",        # "ShowTaskbarPeopleIcon",
 	"ShowTrayIcons",                # "HideTrayIcons",
 	"ShowKnownExtensions",          # "HideKnownExtensions",
 	"ShowHiddenFiles",              # "HideHiddenFiles",
-	"HideSyncNotifications"         # "ShowSyncNotifications",
+	# "HideSyncNotifications"         # "ShowSyncNotifications",
 	"HideRecentShortcuts",          # "ShowRecentShortcuts",
 	"SetExplorerThisPC",            # "SetExplorerQuickAccess",
 	"ShowThisPCOnDesktop",          # "HideThisPCFromDesktop",
-	"HideDesktopFromThisPC",        # "ShowDesktopInThisPC",
-	"HideDocumentsFromThisPC",      # "ShowDocumentsInThisPC",
-	"HideDownloadsFromThisPC",      # "ShowDownloadsInThisPC",
-	"HideMusicFromThisPC",          # "ShowMusicInThisPC",
-	"HidePicturesFromThisPC",       # "ShowPicturesInThisPC",
-	"HideVideosFromThisPC",         # "ShowVideosInThisPC",
-	"SetVisualFXPerformance",       # "SetVisualFXAppearance",
+	# "HideDesktopFromThisPC",        # "ShowDesktopInThisPC",
+	# "HideDocumentsFromThisPC",      # "ShowDocumentsInThisPC",
+	# "HideDownloadsFromThisPC",      # "ShowDownloadsInThisPC",
+	# "HideMusicFromThisPC",          # "ShowMusicInThisPC",
+	# "HidePicturesFromThisPC",       # "ShowPicturesInThisPC",
+	# "HideVideosFromThisPC",         # "ShowVideosInThisPC",
+	# "SetVisualFXPerformance",       # "SetVisualFXAppearance",
 	# "DisableThumbnails",          # "EnableThumbnails",
 	"DisableThumbsDB",              # "EnableThumbsDB",
 	# "AddENKeyboard",              # "RemoveENKeyboard",
-	# "EnableNumlock",              # "DisableNumlock",
+	"EnableNumlock",              # "DisableNumlock",
 
 	### Application Tweaks ###
 	"DisableOneDrive",              # "EnableOneDrive",
@@ -92,7 +92,7 @@ $tweaks = @(
 	"UninstallThirdPartyBloat",     # "InstallThirdPartyBloat",
 	# "UninstallWindowsStore",      # "InstallWindowsStore",
 	"DisableConsumerApps",          # "EnableConsumerApps",
-	"DisableXboxFeatures",          # "EnableXboxFeatures",
+	# "DisableXboxFeatures",          # "EnableXboxFeatures",
 	# "UninstallMediaPlayer",       # "InstallMediaPlayer",
 	# "UninstallWorkFolders",       # "InstallWorkFolders",
 	# "InstallLinuxSubsystem",      # "UninstallLinuxSubsystem",
@@ -101,8 +101,8 @@ $tweaks = @(
 	"AddPhotoViewerOpenWith",       # "RemovePhotoViewerOpenWith",
 	"DisableSearchAppInStore",      # "EnableSearchAppInStore",
 	"DisableNewAppPrompt",          # "EnableNewAppPrompt",
-	"EnableF8BootMenu",             # "DisableF8BootMenu",
-	"SetDEPOptOut",                 # "SetDEPOptIn",
+	# "EnableF8BootMenu",             # "DisableF8BootMenu",
+	# "SetDEPOptOut",               # "SetDEPOptIn",
 
 	### Server Specific Tweaks ###
 	# "HideServerManagerOnLogin",   # "ShowServerManagerOnLogin",
@@ -1292,7 +1292,7 @@ Function UninstallMsftBloat {
 	Get-AppxPackage "Microsoft.NetworkSpeedTest" | Remove-AppxPackage
 	Get-AppxPackage "Microsoft.MSPaint" | Remove-AppxPackage
 	Get-AppxPackage "Microsoft.Microsoft3DViewer" | Remove-AppxPackage
-	Get-AppxPackage "Microsoft.RemoteDesktop" | Remove-AppxPackage
+	# Get-AppxPackage "Microsoft.RemoteDesktop" | Remove-AppxPackage
 }
 
 # Install default Microsoft applications
